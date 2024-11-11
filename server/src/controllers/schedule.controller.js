@@ -132,16 +132,21 @@ async function getBusses(req, res) {
   }
 }
 async function busDetail(req, res) {
-  const { scheduleId } = req.query; // Retrieve scheduleId from query parameters
+  const { scheduleId } = req.params.scheduleId; // Retrieve scheduleId from query parameters
   // console.log("getting");
   // console.log(req.query);
-  console.log(req.query);
+  // console.log(req.query);
+  // const idWithColon = ":6730b86acea95475cf841714";
+
+  // Method 1: Using replace() to remove the colon
+  // const sid = scheduleId.replace(":", "");
+  console.log(scheduleId);
   if (!scheduleId) {
     return res.status(400).json({ message: "Schedule ID is required" });
   }
 
   try {
-    const schedule = await Schedule.findById(scheduleId).populate("bus_id"); // Populate all fields from the Bus model
+    const schedule = await Schedule.findById(sid).populate("bus_id"); // Populate all fields from the Bus model
 
     if (!schedule) {
       return res.status(404).json({ message: "Schedule not found" });
