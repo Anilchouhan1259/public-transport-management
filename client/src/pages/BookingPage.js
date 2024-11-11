@@ -34,7 +34,10 @@ const BookingPage = () => {
       {searchLoading && <p>Loading search results...</p>}
       {searchResults && (
         <div>
-          <h3>Available Buses</h3>
+          <div className="mx-8 my-2">
+            <h3 className="font-semibold text-md ">Available Buses</h3>
+          </div>
+
           <ul>
             {searchResults.map((bus) => (
               <BusList items={bus} />

@@ -26,16 +26,16 @@ const NavLinks = () => {
           <NavLink to="/">Home</NavLink>
         </li>
         <li className="py-4 md:py-0 border-gray-200 border-b-[1px] md:border-0">
-          <NavLink to="/shop">Shop</NavLink>
+          <NavLink to="/">Book</NavLink>
         </li>
         <li className="py-4 md:py-0 border-gray-200 border-b-[1px] md:border-0">
-          <NavLink to="">Product</NavLink>
+          <NavLink to="/compaint">complaint</NavLink>
         </li>
         <li className="py-4 md:py-0 border-gray-200 border-b-[1px] md:border-0">
           <NavLink to="">Contact</NavLink>
         </li>
         <div className="md:ml-72 flex  flex-col md:flex-row md:items-center md:gap-x-5 gap-y-6 ">
-          {/* <LoginLink /> */}Login
+          <NavLink to="/login">Login</NavLink>
           <div className="">
             <div className="md:hidden">Your Profile</div>
             <div className="hidden md:block">

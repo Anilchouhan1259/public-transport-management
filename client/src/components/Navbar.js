@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="block md:hidden absolute aspect-square  z-100 left-2 top-2">
           <NavButton />
         </div>
-        <div className="text-xl font-semibold">Green Bus</div>
+        <div className="text-xl font-semibold">PTMS</div>
         <NavLinks />
 
         <NavLink to="/cart">

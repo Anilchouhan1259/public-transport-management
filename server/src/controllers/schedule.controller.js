@@ -131,5 +131,27 @@ async function getBusses(req, res) {
     });
   }
 }
+async function busDetail(req, res) {
+  const { scheduleId } = req.query; // Retrieve scheduleId from query parameters
+  // console.log("getting");
+  // console.log(req.query);
+  console.log(req.query);
+  if (!scheduleId) {
+    return res.status(400).json({ message: "Schedule ID is required" });
+  }
 
-module.exports = { createSchedule, getBusses };
+  try {
+    const schedule = await Schedule.findById(scheduleId).populate("bus_id"); // Populate all fields from the Bus model
+
+    if (!schedule) {
+      return res.status(404).json({ message: "Schedule not found" });
+    }
+
+    res.json(schedule); // Send the populated schedule with all data as JSON
+  } catch (error) {
+    console.error("Error fetching schedule:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+}
+
+module.exports = { createSchedule, getBusses, busDetail };
